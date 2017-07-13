@@ -48,26 +48,14 @@ function appendGif(searchTerm) {
 }
 
 // performs ajax request to get url and adds it as a src attribute to the img tag
+// also changes the provided image url protocol from http to https 
 function getUrl($newImg, searchTerm) {
   $.get(`https://api.giphy.com/v1/gifs/random?tag=${searchTerm}&api_key=b52d2be9600f49be88b103842725d63f&limit=1`)
     .done((result) => {
       let httpsUrl = 'https:' + result.data.image_url.split(':')[1];
-      // let httpsUrl = httpsify(result.data.image_url);
       $newImg.attr('src', httpsUrl);
     })
     .catch((error) => {
       console.log("something went wrong", error);
     });
 }
-
-// function httpsify(httpUrl) {
-//   let oldProtocol = httpUrl.split(':');
-//   return 'https:' + oldProtocol[1];
-//   return 'https:' + httpUrl.split(':')[1];
-// }
-
-
-
-
-
-// end
