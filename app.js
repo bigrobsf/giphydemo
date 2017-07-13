@@ -49,7 +49,7 @@ function appendGif(searchTerm) {
 
 // performs ajax request to get url and adds it as a src attribute to the img tag
 function getUrl($newImg, searchTerm) {
-  $.get(`http://api.giphy.com/v1/gifs/random?tag=${searchTerm}&api_key=b52d2be9600f49be88b103842725d63f&limit=1`)
+  $.get(`https://api.giphy.com/v1/gifs/random?tag=${searchTerm}&api_key=b52d2be9600f49be88b103842725d63f&limit=1`)
     .done((result) => {
       $newImg.attr('src', result.data.image_url);
     })
