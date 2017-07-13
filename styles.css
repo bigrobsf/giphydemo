@@ -1,0 +1,27 @@
+body {
+  color: #cccccc;
+  font-family: Arial, sans-serif;
+  background: black;
+}
+
+img {
+  max-width: 350px;
+  max-height: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form {
+  text-align: center;
+  margin: 3vmin 0;
+}
+
+.gif {
+  position: relative;
+  display: inline-block;
+  height: 300px;
+  width: 350px;
+  margin: 1vmin;
+}
