@@ -9,10 +9,9 @@
 $(function() {
   $('#search').focus();
 
-  $('#search-btn').on('click', main);
-
-  $('#search').on('keyup', (event) => {
-    if (event.keyCode === '13') main();
+  $('form').on('submit', (event) => {
+    event.preventDefault();
+    main();
   });
 
   $('#delete').on('click', () => {
@@ -44,11 +43,13 @@ function appendGif(searchTerm) {
   $newDiv.append($newImg);
 
   $('main').prepend($newDiv);
+  console.log('before ajax - search term: ', searchTerm);
   getUrl($newImg, searchTerm);
+  console.log('after ajax');
 }
 
 // performs ajax request to get url and adds it as a src attribute to the img tag
-// also changes the provided image url protocol from http to https 
+// also changes the provided image url protocol from http to https
 function getUrl($newImg, searchTerm) {
   $.get(`https://api.giphy.com/v1/gifs/random?tag=${searchTerm}&api_key=b52d2be9600f49be88b103842725d63f&limit=1`)
     .done((result) => {
